@@ -389,19 +389,19 @@ class ForegroundNotificationView: UIView, UITextViewDelegate {
     
     //MARK: - Internal
     
-    func keyboardWillShow(notification: NSNotification) {
+    @objc func keyboardWillShow(notification: NSNotification) {
         currentHeightForKeyboard = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size.height ?? 0
     }
     
-    func keyboardWillHide() {
+    @objc func keyboardWillHide() {
         currentHeightForKeyboard = 0
     }
     
-    func dimmingViewTapped(tapRecognizer: UITapGestureRecognizer) {
+    @objc func dimmingViewTapped(tapRecognizer: UITapGestureRecognizer) {
         dismissNotification()
     }
     
-    func orientationDidChange() {
+    @objc func orientationDidChange() {
         
         if extendingIsFinished {
             
@@ -476,7 +476,7 @@ class ForegroundNotificationView: UIView, UITextViewDelegate {
         }
     }
     
-    func dismissAfterTimer() {
+    @objc func dismissAfterTimer() {
         dismissNotification()
     }
     
